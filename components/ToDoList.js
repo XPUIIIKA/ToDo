@@ -1,12 +1,12 @@
 import { StyleSheet, View } from "react-native";
 import { ToDoElement } from "./ToDoElement";
 
-export function ToDoList({toDoList}){
+export function ToDoList({toDoList, deleteToDo, setComplitedToDo}){
 	return(
 	<View style={styles.list}>
 		{
 			toDoList.map(toDo =>{
-				return <ToDoElement toDo={toDo} key={toDo.id}/>
+				return <ToDoElement setComplitedToDo={setComplitedToDo} deleteToDo={deleteToDo} toDo={toDo} key={toDo.id}/>
 			})
 		}
 	</View>

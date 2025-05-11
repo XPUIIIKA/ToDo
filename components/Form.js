@@ -6,6 +6,9 @@ export function Form({toDoList, setToDoList}){
 	const [body, setBody] = useState('');
 
 	function newId(){
+		if (toDoList.length === 0){
+			return 0
+		}
 		const idList = toDoList.map(toDo => toDo.id);
 		const newId = Math.max(...idList);
 		return newId + 1;
@@ -20,7 +23,8 @@ export function Form({toDoList, setToDoList}){
 		{
 			id: newId(),
 			title,
-			body
+			body,
+			completed: false
 		}
 
 		const newToDoList = [...toDoList, toDo];
